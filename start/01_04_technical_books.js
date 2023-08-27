@@ -29,5 +29,16 @@ class Book {
     this.numCopies += numCopiesStocked;
   }
 }
+class technicalBook extends Book{
+  constructor(title, author, ISBN, numCopies, edition){
+    super(title,author,ISBN,numCopies);
+    this.edition = edition
+  }
 
-// Write your code here
+  getEdition(){
+    return `so edition is ${this.edition}`;
+  }
+}
+
+const technicalBooks = new technicalBook("title", "author", "ISBN",6, 2)
+console.log(technicalBooks.getEdition())
