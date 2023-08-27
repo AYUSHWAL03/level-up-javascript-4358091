@@ -33,9 +33,13 @@
         isVegetarian: true
       }
     ]
-    
+    const menuNodes = document.querySelector("#menu");
     const res = menu.filter((menu) => menu.isVegetarian == true)
-    console.log(res)
+    res.forEach(menu=>{
+      let dish = document.createElement("li");
+      dish.textContent = menu.name;
+      menuNodes.appendChild(dish);
+    })
 
   </script>
 </body>
