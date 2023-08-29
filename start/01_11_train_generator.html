@@ -13,10 +13,30 @@
 
   <!-- Use this element to get to the next stop-->
   <button id="next-stop">Next Stop</button>
-
+  <p id="curr-stop"></p>
   <script>
     // Write your code here
-
+    function* generatorfunc(){
+      yield "1st stop"
+      yield "2nd stop"
+      yield "3rd stop"
+      yield "4th stop"
+      yield "5th stop"
+      yield "last stop"
+    }
+    let generator = generatorfunc();
+    const btn = document.querySelector("#next-stop");
+    btn.addEventListener("click",()=>{
+      let currstop = generator.next();
+      let currstopDisp = document.querySelector("#curr-stop");
+      if(currstop.done == true){
+        console.log("We made it");
+        btn.setAttribute("disabled",true);
+      }else{
+        console.log(currstop.value);
+        currstopDisp.textContent = currstop.value;
+      }
+    })
   </script>
 </body>
 
