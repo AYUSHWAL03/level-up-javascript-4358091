@@ -19,6 +19,18 @@
   <script>
     // Write your code here
 
+    function backgroundColor(color) {
+      return function(){
+        document.body.style.backgroundColor = color;
+      }
+    }
+    
+    const bluebtn = document.getElementById("blue");
+    const pinkbtn = document.getElementById("pink");
+    const greenbtn = document.getElementById("green");
+    bluebtn.addEventListener("click",backgroundColor("blue"));
+    pinkbtn.addEventListener("click",backgroundColor("pink"));
+    greenbtn.addEventListener("click",backgroundColor("green"));
   </script>
 </body>
 
