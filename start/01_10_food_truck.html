@@ -16,7 +16,23 @@
 
   <script>
     // Write your code here
+    function foodTruckMenu(menus){
+      const menu = menus.flat();
+      const combinedMenu = new Set();
+      //set only stores the unique elements in array form
+      for(var item of menu){
+        combinedMenu.add(item);
+      }
+      const menuNode = document.querySelector("#combined-menu");
+      for(var item of combinedMenu){
+        let foodNode = document.createElement("li");
+        foodNode.innerText = item;
+        menuNode.appendChild(foodNode);
+      }
 
+
+    }
+    foodTruckMenu([["a","b"],["b"],["c"]])
   </script>
 </body>
 
