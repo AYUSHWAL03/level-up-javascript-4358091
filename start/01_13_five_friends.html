@@ -17,9 +17,19 @@
   <script>
     // Write your code here
     async function displayFriends(){
-      const res = await fetch("https://randomuser.me/api/?result=5");
+      const res = await fetch("https://randomuser.me/api/?results=5");
       const users = await res.json();
-      console.log(users);
+      const timelineNode = document.querySelector("#timeline");
+      users.results.forEach(element => {
+        let usernames = document.createElement("h2");
+        let images = document.createElement("img");
+        images.src = element.picture.thumbnail;
+        timelineNode.appendChild(images);
+        usernames.textContent = element.name.first;
+        
+        timelineNode.appendChild(usernames);
+        console.log(element.picture.thumbnail)
+      });
     }
     displayFriends()
   </script>
